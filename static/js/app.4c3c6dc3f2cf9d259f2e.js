@@ -399,7 +399,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 menu: [{
                     action: 'local_activity',
                     title: 'vuetify-aduio',
-                    items: [{ title: 'Demo', url: '/#/vuetifyaudio' }, { title: 'Github', url: 'https://github.com/wilsonwu/vuetify-audio' }]
+                    items: [{ title: 'Demo', url: '#/vuetifyaudio' }, { title: 'Github', url: 'https://github.com/wilsonwu/vuetify-audio' }]
                 }]
             }, {
                 key: 'settings',
@@ -860,4 +860,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 /***/ })
 
 },[130]);
-//# sourceMappingURL=app.ed6cbb52c7b3573bd8a9.js.map
+//# sourceMappingURL=app.4c3c6dc3f2cf9d259f2e.js.map
