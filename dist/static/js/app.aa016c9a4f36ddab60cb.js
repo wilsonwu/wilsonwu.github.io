@@ -435,6 +435,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -842,7 +847,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "file": _vm.file
     }
-  })], 1)], 1)
+  }), _vm._v(" "), _c('v-card', [_c('v-card-text', [_vm._v("\n\t\t\t\t\tThis page source code: "), _c('a', {
+    attrs: {
+      "href": "https://github.com/wilsonwu/wilsonwu.github.io/blob/master/src/view/vuetifyaudio.vue"
+    }
+  }, [_vm._v("Source Code")])])], 1)], 1)], 1)
 },staticRenderFns: []}
 
 /***/ }),
@@ -860,4 +869,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 /***/ })
 
 },[130]);
-//# sourceMappingURL=app.4c3c6dc3f2cf9d259f2e.js.map
+//# sourceMappingURL=app.aa016c9a4f36ddab60cb.js.map
