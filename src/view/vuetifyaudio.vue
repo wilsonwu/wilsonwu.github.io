@@ -7,6 +7,11 @@
 				</v-card-text>
 			</v-card>
 			<vuetify-audio :file="file"></vuetify-audio>
+			<v-card>
+				<v-card-text>
+					This page source code: <a href="https://github.com/wilsonwu/wilsonwu.github.io/blob/master/src/view/vuetifyaudio.vue">Source Code</a>
+				</v-card-text>
+			</v-card>
 		</v-flex>
 	</v-layout>
 </template>
