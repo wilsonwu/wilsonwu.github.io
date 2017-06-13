@@ -84,7 +84,7 @@
                                 action: 'local_activity',
                                 title: 'vuetify-aduio',
                                 items: [
-                                    { title: 'Demo', url: '/#/vuetifyaudio' },
+                                    { title: 'Demo', url: '#/vuetifyaudio' },
                                     { title: 'Github', url: 'https://github.com/wilsonwu/vuetify-audio' }
                                 ]
                             },
