@@ -1,16 +1,13 @@
-## 运行项目
-  进入项目 运行一下命令安装依赖包。
+## Install
 ```
 npm install
 ```
-  安装完成之后，开始运行项目。
+## Dev Run
 ```
 npm run dev 
 ```
-## 编译项目
-  运行一下命令：
+## Build
 ```
 npm run build
 ```
-  自动会在浏览器中打开 http://localhost:8080/#/login 的地址</br>
   
