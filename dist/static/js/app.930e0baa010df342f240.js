@@ -215,6 +215,10 @@ const formatTime = secend => {
         autoPlay: {
             type: Boolean,
             default: false
+        },
+        ended: {
+            type: Function,
+            default: () => {}
         }
     },
     computed: {
@@ -440,17 +444,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data() {
 		return {
-			file: 'http://www.noiseaddicts.com/samples_1w72b820/290.mp3'
+			file: 'http://www.noiseaddicts.com/samples_1w72b820/290.mp3',
+			msgs: ['No message now.']
 		};
 	},
 	components: {
 		'vuetify-audio': __WEBPACK_IMPORTED_MODULE_0_vuetify_audio__["a" /* default */]
+	},
+	methods: {
+		audioFinish() {
+			this.msgs.push('The audio finished.');
+		}
 	}
 });
 
@@ -825,6 +840,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "id": "player",
       "src": _vm.file
+    },
+    on: {
+      "ended": _vm.ended
     }
   })], 1)
 },staticRenderFns: []}
@@ -843,11 +861,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "lg4": "",
       "offset-lg4": ""
     }
-  }, [_c('v-card', [_c('v-card-text', [_vm._v("\n\t\t\t\t\tBase on vuetify-audio 0.0.5\n\t\t\t\t")])], 1), _vm._v(" "), _c('vuetify-audio', {
+  }, [_c('v-card', [_c('v-card-text', [_vm._v("\n\t\t\t\t\tBase on vuetify-audio 0.0.7\n\t\t\t\t")])], 1), _vm._v(" "), _c('vuetify-audio', {
     attrs: {
-      "file": _vm.file
+      "file": _vm.file,
+      "ended": _vm.audioFinish
     }
-  }), _vm._v(" "), _c('v-card', [_c('v-card-text', [_vm._v("\n\t\t\t\t\tThis page source code: "), _c('a', {
+  }), _vm._v(" "), _c('v-card', _vm._l((_vm.msgs), function(msg, i) {
+    return _c('v-card-text', {
+      key: i
+    }, [_vm._v("\n\t\t\t\t\t" + _vm._s(msg) + "\n\t\t\t\t")])
+  })), _vm._v(" "), _c('v-card', [_c('v-card-text', [_vm._v("\n\t\t\t\t\tThis page source code: "), _c('a', {
     attrs: {
       "href": "https://github.com/wilsonwu/wilsonwu.github.io/blob/master/src/view/vuetifyaudio.vue"
     }
@@ -869,4 +892,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 /***/ })
 
 },[130]);
-//# sourceMappingURL=app.aa016c9a4f36ddab60cb.js.map
+//# sourceMappingURL=app.930e0baa010df342f240.js.map
