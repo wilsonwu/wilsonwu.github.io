@@ -8,7 +8,7 @@
 			</v-card>
 			<vuetify-audio :file="file" :ended="audioFinish"></vuetify-audio>
 			<v-card>
-				<v-card-text v-for="msg in msgs">
+				<v-card-text v-for="(msg,i) in msgs" :key="i">
 					{{ msg }}
 				</v-card-text>
 			</v-card>
