@@ -11,7 +11,7 @@
                         <key>kind</key>
                         <string>software-package</string>
                         <key>url</key>
-                        <string>http://139.224.172.191/fpp_doctor.ipa</string>
+                        <string>http://wilsonwu.github.io/fpp_doctor.ipa</string>
                     </dict>
                 </array>
                 <key>metadata</key>
