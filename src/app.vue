@@ -1,111 +1,94 @@
 <template>
-	<v-app>
-        <v-navigation-drawer temporary v-model="drawer" :mini-variant.sync="mini" light>
-            <v-list>
-                <v-list-item>
-                    <v-list-tile avatar tag="div">
-                        <v-list-tile-avatar>
-                            <img src="https://avatars3.githubusercontent.com/u/1269496" />
-                        </v-list-tile-avatar>
-                        <v-list-tile-content>
-                            <v-list-tile-title>Wilson Wu</v-list-tile-title>
-                        </v-list-tile-content>
-                        <v-list-tile-action>
-                            <v-btn icon dark @click.native.stop="drawer = !drawer">
-                                <v-icon>chevron_left</v-icon>
-                            </v-btn>
-                        </v-list-tile-action>
-                    </v-list-tile>
-                </v-list-item>
-            </v-list>
-            <v-list v-for="menu in menus" :key="menu.key">
-                <v-list-group v-for="item in menu.menu" :value="item.active" :key="item.title">
-                    <v-list-tile slot="item">
-                        <v-list-tile-action>
-                            <v-icon>{{ item.action }}</v-icon>
-                        </v-list-tile-action>
-                        <v-list-tile-content>
-                            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-                        </v-list-tile-content>
-                        <v-list-tile-action v-if="item.items ? true : false">
-                            <v-icon>keyboard_arrow_down</v-icon>
-                        </v-list-tile-action>
-                    </v-list-tile>
-                    <v-list-item v-for="subItem in item.items" :key="subItem.title">
-                        <v-list-tile :href="subItem.url ? subItem.url : '#'">
-                            <v-list-tile-content>
-                                <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
-                            </v-list-tile-content>
-                        </v-list-tile>
-                    </v-list-item>
-                </v-list-group>
-            </v-list>
-        </v-navigation-drawer>
-        <v-toolbar fixed light>
-            <v-toolbar-side-icon light @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
-            <v-toolbar-title>Wilson Wu OSS</v-toolbar-title>
-        </v-toolbar>
-		<main>
-			<v-container fluid>
-                <router-view></router-view>
-				<vue-progress-bar></vue-progress-bar>
-			</v-container>
-		</main>
-	</v-app>
+	<v-app id="inspire">
+    <v-navigation-drawer v-model="drawer" :clipped="$vuetify.breakpoint.lgAndUp" app temporary>
+      <v-list>
+        <v-list-item>
+          <v-list-item-avatar>
+            <v-img src="https://avatars3.githubusercontent.com/u/1269496?s=100&v=4"></v-img>
+          </v-list-item-avatar>
+        </v-list-item>
+        <v-list-item link href="#/">
+          <v-list-item-content>
+            <v-list-item-title class="title">Wilson Wu</v-list-item-title>
+            <v-list-item-subtitle>iwilsonwu@gmail.com</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+      <v-divider></v-divider>
+      <v-list>
+        <v-list-group v-for="item in items" :key="item.title" v-model="item.active" :prepend-icon="item.action" no-action>
+          <template v-slot:activator>
+            <v-list-item-content>
+              <v-list-item-title v-text="item.title"></v-list-item-title>
+            </v-list-item-content>
+          </template>
+          <v-list-item v-for="subItem in item.items" :key="subItem.title" :href="subItem.url ? subItem.url : '#'">
+            <v-list-item-content>
+              <v-list-item-title v-text="subItem.title"></v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-divider></v-divider>
+
+        </v-list-group>
+      </v-list>
+    </v-navigation-drawer>
+
+    <v-app-bar :clipped-left="$vuetify.breakpoint.lgAndUp" app>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-toolbar-title style="width: 300px">
+        <span class="hidden-sm-and-down">Google Contacts</span>
+      </v-toolbar-title>
+      <v-spacer />
+      <v-btn icon @click="setTheme">
+        <v-icon>mdi-theme-light-dark</v-icon>
+      </v-btn>
+    </v-app-bar>
+    <v-content>
+      <v-container fluid>
+        <router-view></router-view>
+      </v-container>
+    </v-content>
+    <v-footer app>
+      <span>Wilson Wu &copy; 2019</span>
+    </v-footer>
+  </v-app>
 </template>
 
 <script>
-	export default {
-		created () {
-			this.$Progress.start();
-			this.$router.beforeEach((to, from, next) => {
-				if (to.meta.progress !== undefined) {
-					let meta = to.meta.progress;
-					this.$Progress.parseMeta(meta);
-				}
-				this.$Progress.start();
-				next();
-			});
-			this.$router.afterEach((to, from) => {
-				this.$Progress.finish();
-			});
-		},
-		mounted () {
-			this.$Progress.finish();
-		},
-		data () {
-			return {
-				drawer: null,
-                menus: [
-                    {
-                        key: 'main',
-                        menu: [
-                            {
-                                action: 'local_activity',
-                                title: 'vuetify-audio',
-                                items: [
-                                    { title: 'Demo', url: '#/vuetifyaudio' },
-                                    { title: 'Github', url: 'https://github.com/wilsonwu/vuetify-audio' }
-                                ]
-                            },
-                        ],
-                    },
-                    {
-                        key: 'settings',
-                        menu: [
-                            {
-                                action: 'settings',
-                                title: 'About Wilson',
-                                items: [
-                                    { title: 'Wilson Profile', url: 'http://wilsonwu.me' },
-                                ]
-                            }
-                        ],
-                    }
-                ],
-                mini: false, //use this for menu mini in the icon click
-				right: null,
-			}
-		},
-	}
+  export default {
+    data: () => ({
+      dark: null,
+      drawer: null,
+      items: [
+        {
+          key: 'main',
+          action: 'mdi-audiobook ',
+          title: 'vuetify-audio',
+          active: false,
+          items: [
+            { title: 'Demo', url: '#/vuetifyaudio' },
+            { title: 'Github', url: 'https://github.com/wilsonwu/vuetify-audio' }
+          ]
+        },
+        {
+          key: 'setting',
+          action: 'mdi-settings',
+          title: 'About Wilson',
+          active: false,
+          items: [
+            { title: 'Wilson Profile', url: 'http://wilsonwu.me' }
+          ]
+        }
+      ],
+    }),
+    created () {
+      this.dark = this.$vuetify.theme.dark
+    },
+    methods: {
+      setTheme () {
+        this.$vuetify.theme.dark = !this.dark   
+        this.dark = !this.dark
+      }
+    },
+  }
 </script>

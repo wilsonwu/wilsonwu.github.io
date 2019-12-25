@@ -1,32 +1,19 @@
-import BabelPolyfill from 'babel-polyfill';
-import Vue from 'vue';
-import App from './app';
-import VueRouter from 'vue-router';
-import VuexStore from './vuex/store';
-import Vuex from 'vuex';
-import Routers from './routes';
-import VueProgressBar from 'vue-progressbar';
-import VeeValidate from 'vee-validate';
-import Vuetify from 'vuetify';
-import 'vuetify/dist/vuetify.min.css';
+import Vue from 'vue'
+import App from './App.vue'
+import vuetify from './plugins/vuetify';
+import VueRouter from 'vue-router'
+import routes from './routes'
 
-Vue.use(VueRouter);
-Vue.use(Vuex);
-Vue.use(VueProgressBar);
-Vue.use(Vuetify);
-Vue.use(VeeValidate, { errorBagName: 'veeErrors' });
+Vue.use(VueRouter)
 
-const RouterConfig = {
-    routes: Routers
-};
-const router = new VueRouter(RouterConfig);
+Vue.config.productionTip = false
+
+const router = new VueRouter({
+  routes
+})
 
 new Vue({
-    el: '#app',
-    template: '<App />',
-    router,
-    store: VuexStore,
-    components: { 
-        App,
-    },
-}).$mount('#app');
+  vuetify,
+  router,
+  render: h => h(App)
+}).$mount('#app')

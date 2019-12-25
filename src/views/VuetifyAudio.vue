@@ -3,7 +3,7 @@
         <v-flex xs12 sm6 offset-sm3 lg4 offset-lg4>
 			<v-card>
 				<v-card-text>
-					Base on vuetify-audio 0.0.7
+					Base on vuetify-audio 0.0.8
 				</v-card-text>
 			</v-card>
 			<vuetify-audio :file="file" :ended="audioFinish"></vuetify-audio>
