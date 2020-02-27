@@ -14,7 +14,12 @@
 			</v-card>
 			<v-card>
 				<v-card-text>
-					This page source code: <a href="https://github.com/wilsonwu/wilsonwu.github.io/blob/master/src/view/vuetifyaudio.vue">Source Code</a>
+					This page source code: <a href="https://github.com/wilsonwu/wilsonwu.github.io/blob/master/src/views/VuetifyAudio.vue">Source Code</a>
+				</v-card-text>
+			</v-card>
+			<v-card>
+				<v-card-text>
+					The component source code: <a href="https://github.com/wilsonwu/vuetify-audio/">wilsonwu/vuetify-audio</a>
 				</v-card-text>
 			</v-card>
 		</v-flex>

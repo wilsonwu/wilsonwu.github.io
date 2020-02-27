@@ -36,7 +36,7 @@
     <v-app-bar :clipped-left="$vuetify.breakpoint.lgAndUp" app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title style="width: 300px">
-        <span class="hidden-sm-and-down">Google Contacts</span>
+        <span class="hidden-sm-and-down">Wilson Wu OpenSource</span>
       </v-toolbar-title>
       <v-spacer />
       <v-btn icon @click="setTheme">
@@ -49,7 +49,7 @@
       </v-container>
     </v-content>
     <v-footer app>
-      <span>Wilson Wu &copy; 2019</span>
+      <span>Wilson Wu &copy; 2009-2020</span>
     </v-footer>
   </v-app>
 </template>
