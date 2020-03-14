@@ -1,6 +1,6 @@
 <template>
-    <v-layout>
-        <v-flex xs12 sm6 offset-sm3 lg4 offset-lg4>
+<v-container>
+      <v-flex xs12 sm6 offset-sm3 lg4 offset-lg4>
 			<v-card>
 				<v-card-text>
 					Base on vuetify-audio 0.2.1
@@ -24,7 +24,7 @@
 				</v-card-text>
 			</v-card>
 		</v-flex>
-	</v-layout>
+</v-container>
 </template>
 <script>
 
@@ -35,7 +35,8 @@
 		data: () => ({
 			file: 'http://www.noiseaddicts.com/samples_1w72b820/290.mp3',
 			color: null,
-			btnText: 'Set Color to "Success" (Green)'
+			btnText: 'Set Color to "Primary" (Blue)',
+      msgs: []
 		}),
 		methods: {
 			audioFinish () {
@@ -44,9 +45,9 @@
 			setColor () {
 				if (this.color) {
 					this.color = null
-					this.btnText = 'Set Color to "Success" (Green)'
+					this.btnText = 'Set Color to "Primary" (Blue)'
 				} else {
-					this.color = 'success'
+					this.color = 'primary'
 					this.btnText = 'Set Color to Default (Follow the Theme)'
 				}
 			}
