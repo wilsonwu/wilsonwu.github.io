@@ -3,14 +3,24 @@
       <v-flex xs12 sm6 offset-sm3 lg4 offset-lg4>
 			<v-card>
 				<v-card-text>
-					Base on vuetify-audio 0.2.1
+					Base on vuetify-audio 0.3.1
 				</v-card-text>
 				<v-card-text>
-					<vuetify-audio :file="file" :color="color" :ended="audioFinish"></vuetify-audio>
+					<vuetify-audio :file="file" :color="color" :ended="audioFinish" :downloadable="downloadable" :autoPlay="autoPlay"></vuetify-audio>
 				</v-card-text>
 				<v-card-actions>
 					<v-btn outlined block @click="setColor">
 						{{ btnText }}
+					</v-btn>
+				</v-card-actions>
+				<v-card-actions>
+					<v-btn outlined block @click="setDownloadable">
+						Set Downloadable, Now is: {{ downloadable }}
+					</v-btn>
+				</v-card-actions>
+				<v-card-actions>
+					<v-btn outlined block @click="setAutoPlay">
+						Set Auto Play, Now is : {{ autoPlay }}
 					</v-btn>
 				</v-card-actions>
 				<v-card-text v-for="(msg,i) in msgs" :key="i">
@@ -29,14 +39,23 @@
 <script>
 
 	export default {
+		created () {
+			if (localStorage.autoPlay === "true") {
+				this.autoPlay = true
+			} else {
+				this.autoPlay = false
+			}
+		},
 		components: {
 			VuetifyAudio: () => import('vuetify-audio'),
 		},
 		data: () => ({
 			file: 'http://www.hochmuth.com/mp3/Boccherini_Concerto_478-1.mp3',
 			color: null,
+			downloadable: false,
+			autoPlay: false,
 			btnText: 'Set Color to "Primary" (Blue)',
-      msgs: []
+			msgs: [],
 		}),
 		methods: {
 			audioFinish () {
@@ -50,6 +69,13 @@
 					this.color = 'primary'
 					this.btnText = 'Set Color to Default (Follow the Theme)'
 				}
+			},
+			setDownloadable () {
+				this.downloadable = !this.downloadable
+			},
+			setAutoPlay () {
+				this.autoPlay = !this.autoPlay
+				localStorage.autoPlay = this.autoPlay
 			}
 		},
 	}
