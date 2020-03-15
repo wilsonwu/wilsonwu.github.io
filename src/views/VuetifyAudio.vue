@@ -33,7 +33,7 @@
 			VuetifyAudio: () => import('vuetify-audio'),
 		},
 		data: () => ({
-			file: 'http://www.noiseaddicts.com/samples_1w72b820/290.mp3',
+			file: 'http://www.hochmuth.com/mp3/Boccherini_Concerto_478-1.mp3',
 			color: null,
 			btnText: 'Set Color to "Primary" (Blue)',
       msgs: []
