@@ -50,7 +50,7 @@
 			VuetifyAudio: () => import('vuetify-audio'),
 		},
 		data: () => ({
-			file: 'http://www.hochmuth.com/mp3/Boccherini_Concerto_478-1.mp3',
+			file: 'http://wilsonwu.github.io/dist/290.mp3',
 			color: null,
 			downloadable: false,
 			autoPlay: false,
